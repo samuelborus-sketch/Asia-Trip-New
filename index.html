@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sam's Asia Trip 2025</title>
+<title>Sam's Asia Trip 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,6 +24,7 @@
   --phuket:#e879f9;
   --bali:#34d399;
   --paid:#4ade80;
+  --reserved:#fb923c;
   --unpaid:#fbbf24;
   --r:12px;
 }
@@ -164,7 +165,7 @@ h2{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--gold);margi
   background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);
   padding:1.4rem;margin-bottom:1.4rem;
 }
-.budget-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.2rem;text-align:center}
+.budget-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.2rem;text-align:center}
 .bnum{display:flex;flex-direction:column;gap:.15rem}
 .bnum .ba{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;line-height:1}
 .bnum .bl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
@@ -172,8 +173,9 @@ h2{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--gold);margi
 .bnum.remaining .ba{color:var(--unpaid)}
 .bnum.total .ba{color:var(--gold)}
 
-.pbar-wrap{background:var(--surface);border-radius:99px;height:9px;overflow:hidden;border:1px solid var(--border)}
-.pbar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#22c55e,#4ade80);width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1)}
+.pbar-wrap{background:var(--surface);border-radius:99px;height:9px;overflow:hidden;border:1px solid var(--border);display:flex}
+.pbar-paid{height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1)}
+.pbar-reserved{height:100%;background:var(--reserved);opacity:.8;width:0;transition:width 1.3s .15s cubic-bezier(.4,0,.2,1)}
 .pbar-lbl{font-size:.68rem;color:var(--muted);text-align:right;margin-top:.35rem}
 .budget-note{
   margin-top:1rem;font-size:.79rem;color:var(--muted);
@@ -197,6 +199,8 @@ tr:last-child td{border-bottom:none}
 .row-paid .st{color:var(--paid);font-weight:600;white-space:nowrap}
 .row-unpaid td{color:var(--muted)}
 .row-unpaid .st{color:var(--unpaid);font-weight:600;white-space:nowrap}
+.row-reserved td{color:var(--text)}
+.row-reserved .st{color:var(--reserved);font-weight:600;white-space:nowrap}
 .row-total{background:rgba(212,168,83,.05)}
 .row-total td{font-weight:700;color:var(--gold);border-top:1px solid var(--border)!important;border-bottom:none!important}
 .tbd{color:var(--unpaid);font-style:italic}
@@ -243,6 +247,10 @@ textarea{resize:vertical;min-height:80px}
 .form-foot{display:flex;align-items:center;justify-content:flex-end;gap:.75rem;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--border)}
 .saved-note{font-size:.74rem;color:var(--paid);display:none;align-items:center;gap:.3rem}
 .saved-note.show{display:flex}
+.ef-section{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding:.75rem 0 .6rem;margin-top:.25rem;border-top:1px solid var(--border)}
+.ef-section:first-child{border-top:none;padding-top:0}
+select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Inter',sans-serif;font-size:.83rem;padding:.58rem .8rem;outline:none;cursor:pointer;transition:border-color .2s;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2371717a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .75rem center}
+select:focus{border-color:var(--gold)}
 
 /* ── INFO ── */
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
@@ -278,6 +286,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
 /* ── RESPONSIVE ── */
 @media(max-width:640px){
   .stats-row{grid-template-columns:repeat(2,1fr)}
+  .budget-nums{grid-template-columns:repeat(2,1fr)}
   .budget-tables{grid-template-columns:1fr}
   .info-grid{grid-template-columns:1fr}
   .info-card.full{grid-column:auto}
@@ -312,7 +321,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
     <strong>📍 Status:</strong> <span id="status-text"></span>
   </div>
 
-  <h1>Sam's Asia Trip 2025</h1>
+  <h1>Sam's Asia Trip 2026</h1>
   <p class="subtitle">May 30 – June 25 &nbsp;·&nbsp; Thailand &nbsp;·&nbsp; Vietnam &nbsp;·&nbsp; Indonesia</p>
 
   <div class="cd-wrap">
@@ -362,20 +371,24 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
   <div class="budget-summary">
     <div class="budget-nums">
       <div class="bnum paid">
-        <span class="ba">$3,713</span>
-        <span class="bl">Paid So Far</span>
+        <span class="ba" id="bn-paid">$3,062</span>
+        <span class="bl">Confirmed Paid</span>
       </div>
-      <div class="bnum remaining">
-        <span class="ba">$3,250</span>
-        <span class="bl">Remaining</span>
+      <div class="bnum" style="--ba-color:var(--reserved)">
+        <span class="ba" style="color:var(--reserved)" id="bn-reserved">$651</span>
+        <span class="bl">Reserved</span>
+      </div>
+      <div class="bnum" style="--ba-color:var(--unpaid)">
+        <span class="ba" style="color:var(--unpaid)" id="bn-spending">$2,750</span>
+        <span class="bl">Spending Est.</span>
       </div>
       <div class="bnum total">
         <span class="ba">$6,463</span>
         <span class="bl">Total Budget</span>
       </div>
     </div>
-    <div class="pbar-wrap"><div class="pbar-fill" id="pbar"></div></div>
-    <div class="pbar-lbl">$3,712.93 of $6,462.93 locked in &nbsp;(57%)</div>
+    <div class="pbar-wrap"><div class="pbar-paid" id="pbar-paid"></div><div class="pbar-reserved" id="pbar-res"></div></div>
+    <div class="pbar-lbl"><span style="color:var(--paid)">■</span> $3,062 paid &nbsp;·&nbsp; <span style="color:var(--reserved)">■</span> $651 reserved &nbsp;·&nbsp; 57% committed of $6,463</div>
     <div class="budget-note">💡 Note: Connor owes Reese $250.90</div>
   </div>
 
@@ -392,16 +405,16 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
           <tr class="row-paid"><td>HAN → HKT</td><td>$273.90</td><td class="st">✅ Paid</td></tr>
           <tr class="row-paid"><td>HKT → DPS</td><td>$158.00</td><td class="st">✅ Paid</td></tr>
           <tr class="row-paid"><td>Bangkok Airbnb</td><td>$105.00</td><td class="st">✅ Paid</td></tr>
-          <tr class="row-paid"><td>Mad Monkey Chiang Mai</td><td>$52.30</td><td class="st">✅ Paid</td></tr>
-          <tr class="row-paid"><td>Ha Giang Loop Tour</td><td>$400.00</td><td class="st">✅ Paid</td></tr>
-          <tr class="row-paid"><td>Lub d Phuket Patong</td><td>$105.50</td><td class="st">✅ Paid</td></tr>
-          <tr class="row-paid"><td>The Farm Hostel Bali</td><td>$93.10</td><td class="st">✅ Paid</td></tr>
+          <tr id="row-madmonkey" class="row-reserved"><td>Mad Monkey Chiang Mai</td><td>$52.30</td><td class="st">🔒 Reserved</td></tr>
+          <tr id="row-hagiang" class="row-reserved"><td>Ha Giang Loop Tour</td><td>$400.00</td><td class="st">🔒 Reserved</td></tr>
+          <tr id="row-lubd" class="row-reserved"><td>Lub d Phuket Patong</td><td>$105.50</td><td class="st">🔒 Reserved</td></tr>
+          <tr id="row-farm" class="row-reserved"><td>The Farm Hostel Bali</td><td>$93.10</td><td class="st">🔒 Reserved</td></tr>
           <tr class="row-unpaid">
             <td>Hanoi Hostel <span class="tbd" id="hanoi-name-display">(TBD)</span></td>
             <td><span id="hanoi-cost-display">~$25–30</span></td>
             <td class="st">⏳ TBD</td>
           </tr>
-          <tr class="row-total"><td colspan="3"><strong>Subtotal (paid): $3,712.93</strong></td></tr>
+          <tr class="row-total"><td colspan="3"><strong>Paid: $3,062.03 &nbsp;·&nbsp; Reserved: $650.90</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -411,12 +424,12 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
       <table>
         <thead><tr><th>Category</th><th>Budget</th><th>Status</th></tr></thead>
         <tbody>
-          <tr class="row-unpaid"><td>Food</td><td>$650</td><td class="st">⏳ Est.</td></tr>
-          <tr class="row-unpaid"><td>Activities</td><td>$700</td><td class="st">⏳ Est.</td></tr>
-          <tr class="row-unpaid"><td>Nightlife</td><td>$700</td><td class="st">⏳ Est.</td></tr>
-          <tr class="row-unpaid"><td>Shopping</td><td>$400</td><td class="st">⏳ Est.</td></tr>
-          <tr class="row-unpaid"><td>Pre-Trip</td><td>$300</td><td class="st">⏳ Est.</td></tr>
-          <tr class="row-total"><td colspan="3"><strong>Subtotal (spending): $2,750</strong></td></tr>
+          <tr class="row-unpaid"><td>Food</td><td id="sp-food">$650</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Activities</td><td id="sp-acts">$700</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Nightlife</td><td id="sp-night">$700</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Shopping</td><td id="sp-shop">$400</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Pre-Trip</td><td id="sp-pre">$300</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-total"><td colspan="3"><strong id="spending-subtotal">Subtotal (spending): $2,750</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -445,6 +458,8 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
     </div>
 
     <div class="ef-form" id="ef-form">
+
+      <div class="ef-section">Bookings &amp; Info</div>
       <div class="form-grid">
         <div class="fg">
           <label>Hanoi Hostel Name</label>
@@ -459,10 +474,41 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
         <label>Ha Giang Tour Company</label>
         <input type="text" id="ef-hagiang" placeholder="e.g. Ha Giang Adventure Tours">
       </div>
+
+      <div class="ef-section">Accommodation Status</div>
+      <div class="form-grid">
+        <div class="fg">
+          <label>Mad Monkey Chiang Mai — $52.30</label>
+          <select id="ef-madmonkey"><option value="reserved">🔒 Reserved — not paid</option><option value="paid">✅ Paid</option></select>
+        </div>
+        <div class="fg">
+          <label>Ha Giang Loop Tour — $400.00</label>
+          <select id="ef-hagiang-status"><option value="reserved">🔒 Reserved — not paid</option><option value="paid">✅ Paid</option></select>
+        </div>
+        <div class="fg">
+          <label>Lub d Phuket Patong — $105.50</label>
+          <select id="ef-lubd"><option value="reserved">🔒 Reserved — not paid</option><option value="paid">✅ Paid</option></select>
+        </div>
+        <div class="fg">
+          <label>The Farm Hostel Bali — $93.10</label>
+          <select id="ef-farm"><option value="reserved">🔒 Reserved — not paid</option><option value="paid">✅ Paid</option></select>
+        </div>
+      </div>
+
+      <div class="ef-section">Spending Budget</div>
+      <div class="form-grid">
+        <div class="fg"><label>Food</label><input type="text" id="ef-food" placeholder="$650"></div>
+        <div class="fg"><label>Activities</label><input type="text" id="ef-acts" placeholder="$700"></div>
+        <div class="fg"><label>Nightlife</label><input type="text" id="ef-night" placeholder="$700"></div>
+        <div class="fg"><label>Shopping</label><input type="text" id="ef-shop" placeholder="$400"></div>
+        <div class="fg"><label>Pre-Trip</label><input type="text" id="ef-pre" placeholder="$300"></div>
+      </div>
+
+      <div class="ef-section">Status Message for Parents</div>
       <div class="fg">
-        <label>Status Message for Parents</label>
         <textarea id="ef-status" placeholder="e.g. Currently in Chiang Mai — everything's great! Had an incredible time at the elephant sanctuary today."></textarea>
       </div>
+
       <div class="form-foot">
         <div class="saved-note" id="saved-note">✓ Saved!</div>
         <button class="btn btn-gold" onclick="saveEdits()">Save Changes</button>
@@ -583,8 +629,8 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
 <script>
 // ── TRIP CONFIG ───────────────────────────────────────────────────────────
 
-const DEPARTURE = new Date('2025-05-30T22:55:00-05:00');
-const TRIP_END  = new Date('2025-06-26T04:00:00+00:00');
+const DEPARTURE = new Date('2026-05-30T22:55:00-05:00');
+const TRIP_END  = new Date('2026-06-26T04:00:00+00:00');
 
 const DESTS = {
   pre:       { color:'#d4a853', label:'Departure Day' },
@@ -597,7 +643,7 @@ const DESTS = {
 
 const ITINERARY = [
   {
-    day:0, date:'2025-05-30', dest:'pre', flag:'✈️',
+    day:0, date:'2026-05-30', dest:'pre', flag:'✈️',
     city:'Dallas → Bangkok', isFlight:true,
     acts:[
       'Depart Dallas DFW at 10:55pm CT',
@@ -606,7 +652,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:1, date:'2025-06-01', dest:'bangkok', flag:'🇹🇭',
+    day:1, date:'2026-06-01', dest:'bangkok', flag:'🇹🇭',
     city:'Bangkok — Arrival Day',
     acts:[
       'Arrive Bangkok BKK at 10:00am',
@@ -617,7 +663,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:2, date:'2025-06-02', dest:'bangkok', flag:'🇹🇭',
+    day:2, date:'2026-06-02', dest:'bangkok', flag:'🇹🇭',
     city:'Bangkok — Grand Palace + Muay Thai',
     acts:[
       'Grand Palace + Wat Pho in the morning',
@@ -627,7 +673,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:3, date:'2025-06-03', dest:'bangkok', flag:'🇹🇭',
+    day:3, date:'2026-06-03', dest:'bangkok', flag:'🇹🇭',
     city:'Bangkok — Markets Day',
     acts:[
       'Chatuchak Weekend Market (BTS to Mo Chit)',
@@ -636,7 +682,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:4, date:'2025-06-04', dest:'bangkok', flag:'🇹🇭',
+    day:4, date:'2026-06-04', dest:'bangkok', flag:'🇹🇭',
     city:'Bangkok — Canal Tour',
     acts:[
       'Canal boat tour of Bangkok khlongs',
@@ -645,7 +691,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:5, date:'2025-06-05', dest:'chiangmai', flag:'✈️',
+    day:5, date:'2026-06-05', dest:'chiangmai', flag:'✈️',
     city:'Bangkok → Chiang Mai', isFlight:true,
     acts:[
       'Flight: Bangkok Don Mueang (DMK) → Chiang Mai (CNX) — morning departure',
@@ -655,7 +701,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:6, date:'2025-06-06', dest:'chiangmai', flag:'🌿',
+    day:6, date:'2026-06-06', dest:'chiangmai', flag:'🌿',
     city:'Chiang Mai — Elephants + Walking Street',
     acts:[
       'Elephant Nature Park half-day (ethical sanctuary — no riding)',
@@ -664,7 +710,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:7, date:'2025-06-07', dest:'chiangmai', flag:'🌿',
+    day:7, date:'2026-06-07', dest:'chiangmai', flag:'🌿',
     city:'Chiang Mai — Doi Suthep + Muay Thai',
     acts:[
       'Doi Suthep temple + Sticky Waterfall day trip',
@@ -673,7 +719,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:8, date:'2025-06-08', dest:'vietnam', flag:'✈️',
+    day:8, date:'2026-06-08', dest:'vietnam', flag:'✈️',
     city:'Chiang Mai → Hanoi', isFlight:true,
     acts:[
       'Flight: Chiang Mai (CNX) → Hanoi (HAN) — morning departure',
@@ -684,7 +730,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:9, date:'2025-06-09', dest:'vietnam', flag:'🇻🇳',
+    day:9, date:'2026-06-09', dest:'vietnam', flag:'🇻🇳',
     city:'Hanoi + Night Bus to Ha Giang',
     acts:[
       'Morning: Train Street, Temple of Literature',
@@ -694,7 +740,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:10, date:'2025-06-10', dest:'vietnam', flag:'🏍️',
+    day:10, date:'2026-06-10', dest:'vietnam', flag:'🏍️',
     city:'Ha Giang Loop — Day 1',
     acts:[
       'Depart with Easy Rider guide',
@@ -704,7 +750,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:11, date:'2025-06-11', dest:'vietnam', flag:'🏍️',
+    day:11, date:'2026-06-11', dest:'vietnam', flag:'🏍️',
     city:'Ha Giang Loop — Day 2',
     acts:[
       'Ma Pi Leng Pass — stunning viewpoint above Nho Que River gorge',
@@ -714,7 +760,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:12, date:'2025-06-12', dest:'vietnam', flag:'🏍️',
+    day:12, date:'2026-06-12', dest:'vietnam', flag:'🏍️',
     city:'Ha Giang Loop — Day 3',
     acts:[
       'Lo Lo Chai village',
@@ -723,7 +769,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:13, date:'2025-06-13', dest:'vietnam', flag:'🏍️',
+    day:13, date:'2026-06-13', dest:'vietnam', flag:'🏍️',
     city:'Ha Giang Loop — Day 4 (Return)',
     acts:[
       'Scenic return ride to Ha Giang City, arrive ~3pm',
@@ -733,7 +779,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:14, date:'2025-06-14', dest:'vietnam', flag:'🇻🇳',
+    day:14, date:'2026-06-14', dest:'vietnam', flag:'🇻🇳',
     city:'Hanoi — Final Vietnam Day',
     acts:[
       'Arrive back in Hanoi ~2am — airport guesthouse near Noi Bai',
@@ -743,7 +789,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:15, date:'2025-06-15', dest:'phuket', flag:'✈️',
+    day:15, date:'2026-06-15', dest:'phuket', flag:'✈️',
     city:'Hanoi → Phuket', isFlight:true,
     acts:[
       'Flight: Hanoi (HAN) → Phuket (HKT)',
@@ -752,7 +798,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:16, date:'2025-06-16', dest:'phuket', flag:'🇹🇭',
+    day:16, date:'2026-06-16', dest:'phuket', flag:'🇹🇭',
     city:'Phuket — Phi Phi Islands',
     acts:[
       'Phi Phi Islands full-day speedboat tour',
@@ -762,7 +808,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:17, date:'2025-06-17', dest:'phuket', flag:'🇹🇭',
+    day:17, date:'2026-06-17', dest:'phuket', flag:'🇹🇭',
     city:'Phuket — James Bond Island + Surf',
     acts:[
       'Phang Nga Bay + James Bond Island — half-day sea kayak tour',
@@ -771,7 +817,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:18, date:'2025-06-18', dest:'phuket', flag:'🇹🇭',
+    day:18, date:'2026-06-18', dest:'phuket', flag:'🇹🇭',
     city:'Phuket — ATV + Night Market',
     acts:[
       'ATV jungle tour or island scooter exploration',
@@ -781,7 +827,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:19, date:'2025-06-19', dest:'phuket', flag:'🇹🇭',
+    day:19, date:'2026-06-19', dest:'phuket', flag:'🇹🇭',
     city:'Phuket — Beach Day',
     acts:[
       'Chill beach day at Patong Beach',
@@ -790,7 +836,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:20, date:'2025-06-20', dest:'bali', flag:'✈️',
+    day:20, date:'2026-06-20', dest:'bali', flag:'✈️',
     city:'Phuket → Bali', isFlight:true,
     acts:[
       'Flight: Phuket (HKT) → Bali / Denpasar (DPS)',
@@ -800,7 +846,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:21, date:'2025-06-21', dest:'bali', flag:'🌴',
+    day:21, date:'2026-06-21', dest:'bali', flag:'🌴',
     city:'Canggu — Beach Club Day',
     acts:[
       'Chill Canggu day exploring by scooter',
@@ -808,7 +854,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:22, date:'2025-06-22', dest:'bali', flag:'🌋',
+    day:22, date:'2026-06-22', dest:'bali', flag:'🌋',
     city:'Mount Batur Sunrise Trek',
     acts:[
       '2am guide pickup → summit Mount Batur at sunrise (~6am)',
@@ -818,7 +864,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:23, date:'2025-06-23', dest:'bali', flag:'🏝️',
+    day:23, date:'2026-06-23', dest:'bali', flag:'🏝️',
     city:'Gili Trawangan Day Trip',
     acts:[
       'Fast boat from Padang Bai to Gili T',
@@ -828,7 +874,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:24, date:'2025-06-24', dest:'bali', flag:'🌴',
+    day:24, date:'2026-06-24', dest:'bali', flag:'🌴',
     city:'Ubud + Final Night Out',
     acts:[
       'Tegalalang Rice Terraces + Ubud Monkey Forest by scooter',
@@ -838,7 +884,7 @@ const ITINERARY = [
     ]
   },
   {
-    day:25, date:'2025-06-25', dest:'bali', flag:'✈️',
+    day:25, date:'2026-06-25', dest:'bali', flag:'✈️',
     city:'Bali → Dallas (Home!)', isFlight:true,
     acts:[
       'Check out The Farm Hostel',
@@ -959,16 +1005,73 @@ function renderTimeline(){
 
 // ── BUDGET BAR ────────────────────────────────────────────────────────────
 
+// Base fixed-paid items (flights + Bangkok Airbnb) — never change
+const BASE_PAID = 3062.03;
+// Reserved items and their amounts
+const RESERVED_ITEMS = {
+  madmonkey: 52.30,
+  hagiang:   400.00,
+  lubd:      105.50,
+  farm:      93.10,
+};
+const SPENDING_DEFAULTS = { food:650, acts:700, night:700, shop:400, pre:300 };
+
+function calcTotals(d){
+  // How much of reserved items are now paid
+  let reservedPaid = 0;
+  let stillReserved = 0;
+  ['madmonkey','hagiang','lubd','farm'].forEach(k => {
+    if((d[k+'Status'] || 'reserved') === 'paid') reservedPaid += RESERVED_ITEMS[k];
+    else stillReserved += RESERVED_ITEMS[k];
+  });
+  const confirmed = BASE_PAID + reservedPaid;
+  const spending = ['food','acts','night','shop','pre'].reduce((sum,k) => {
+    const val = parseFloat((d['sp_'+k] || '').replace(/[^0-9.]/g,''));
+    return sum + (isNaN(val) ? SPENDING_DEFAULTS[k] : val);
+  }, 0);
+  return { confirmed, stillReserved, spending, total: 6462.93 };
+}
+
 function animateBudget(){
-  const bar = document.getElementById('pbar');
-  const pct = (3712.93 / 6462.93 * 100).toFixed(1);
   const obs = new IntersectionObserver(entries => {
     if(entries[0].isIntersecting){
-      setTimeout(() => { bar.style.width = pct + '%'; }, 150);
+      setTimeout(() => updateBudgetDisplay(getSaved()), 150);
       obs.disconnect();
     }
   }, { threshold: 0.4 });
-  obs.observe(bar);
+  obs.observe(document.getElementById('pbar-paid'));
+}
+
+function updateBudgetDisplay(d){
+  const { confirmed, stillReserved, spending, total } = calcTotals(d);
+  const paidPct     = (confirmed    / total * 100).toFixed(1);
+  const resPct      = (stillReserved / total * 100).toFixed(1);
+  const committed   = confirmed + stillReserved;
+  const commitPct   = (committed / total * 100).toFixed(0);
+
+  document.getElementById('pbar-paid').style.width = paidPct + '%';
+  document.getElementById('pbar-res').style.width  = resPct  + '%';
+
+  document.getElementById('bn-paid').textContent     = '$' + confirmed.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+  document.getElementById('bn-reserved').textContent = '$' + Math.round(stillReserved).toLocaleString();
+  document.getElementById('bn-spending').textContent = '$' + Math.round(spending).toLocaleString();
+
+  const lbl = document.querySelector('.pbar-lbl');
+  if(lbl) lbl.innerHTML =
+    `<span style="color:var(--paid)">■</span> $${Math.round(confirmed).toLocaleString()} paid &nbsp;·&nbsp; ` +
+    `<span style="color:var(--reserved)">■</span> $${Math.round(stillReserved).toLocaleString()} reserved &nbsp;·&nbsp; ${commitPct}% committed of $6,463`;
+
+  // Update spending table cells
+  const keys = ['food','acts','night','shop','pre'];
+  keys.forEach(k => {
+    const el = document.getElementById('sp-'+k);
+    if(!el) return;
+    const val = parseFloat((d['sp_'+k]||'').replace(/[^0-9.]/g,''));
+    el.textContent = '$' + (isNaN(val) ? SPENDING_DEFAULTS[k] : Math.round(val)).toLocaleString();
+  });
+  const spTotal = spending;
+  const sub = document.getElementById('spending-subtotal');
+  if(sub) sub.textContent = 'Subtotal (spending): $' + Math.round(spTotal).toLocaleString();
 }
 
 // ── EDIT PANEL ────────────────────────────────────────────────────────────
@@ -1013,6 +1116,17 @@ function showForm(){
   document.getElementById('ef-hanoi-cost').value = s.hanoiCost || '';
   document.getElementById('ef-hagiang').value    = s.hagiang   || '';
   document.getElementById('ef-status').value     = s.status    || '';
+  // Accommodation status selects
+  ['madmonkey','hagiang','lubd','farm'].forEach(k => {
+    const el = document.getElementById('ef-'+k+(k==='hagiang'?'-status':'')+ (k==='madmonkey'||k==='lubd'||k==='farm'?'':''));
+    const sel = document.getElementById(k==='hagiang' ? 'ef-hagiang-status' : 'ef-'+k);
+    if(sel) sel.value = s[k+'Status'] || 'reserved';
+  });
+  // Spending fields
+  ['food','acts','night','shop','pre'].forEach(k => {
+    const el = document.getElementById('ef-'+k);
+    if(el) el.value = s['sp_'+k] || '';
+  });
 }
 
 function saveEdits(){
@@ -1021,6 +1135,17 @@ function saveEdits(){
     hanoiCost: document.getElementById('ef-hanoi-cost').value.trim(),
     hagiang:   document.getElementById('ef-hagiang').value.trim(),
     status:    document.getElementById('ef-status').value.trim(),
+    // Accommodation statuses
+    madmonkeyStatus: document.getElementById('ef-madmonkey').value,
+    hagiangStatus:   document.getElementById('ef-hagiang-status').value,
+    lubdStatus:      document.getElementById('ef-lubd').value,
+    farmStatus:      document.getElementById('ef-farm').value,
+    // Spending
+    sp_food:  document.getElementById('ef-food').value.trim(),
+    sp_acts:  document.getElementById('ef-acts').value.trim(),
+    sp_night: document.getElementById('ef-night').value.trim(),
+    sp_shop:  document.getElementById('ef-shop').value.trim(),
+    sp_pre:   document.getElementById('ef-pre').value.trim(),
   };
   try{ localStorage.setItem('asiaTripData_v2', JSON.stringify(data)); }catch(e){}
   applyData(data);
@@ -1033,25 +1158,34 @@ function getSaved(){
   try{ return JSON.parse(localStorage.getItem('asiaTripData_v2') || '{}'); }catch(e){ return {}; }
 }
 
+function setRowStatus(rowId, status){
+  const row = document.getElementById(rowId);
+  if(!row) return;
+  row.className = status === 'paid' ? 'row-paid' : 'row-reserved';
+  const st = row.querySelector('.st');
+  if(st) st.textContent = status === 'paid' ? '✅ Paid' : '🔒 Reserved';
+}
+
 function applyData(d){
-  // Budget table — Hanoi name
+  // Hanoi hostel name
   const nn = document.getElementById('hanoi-name-display');
-  if(nn) nn.textContent = d.hanoiName ? d.hanoiName : '(TBD)';
-  // Budget table — Hanoi cost
+  if(nn) nn.textContent = d.hanoiName || '(TBD)';
   const nc = document.getElementById('hanoi-cost-display');
-  if(nc) nc.textContent = d.hanoiCost ? d.hanoiCost : '~$25–30';
-  // Accommodation list — Hanoi
+  if(nc) nc.textContent = d.hanoiCost || '~$25–30';
   const na = document.getElementById('hanoi-accom-display');
-  if(na) na.textContent = d.hanoiName ? d.hanoiName : 'Hanoi Hostel (TBD)';
+  if(na) na.textContent = d.hanoiName || 'Hanoi Hostel (TBD)';
+  // Accommodation row statuses
+  setRowStatus('row-madmonkey', d.madmonkeyStatus || 'reserved');
+  setRowStatus('row-hagiang',   d.hagiangStatus   || 'reserved');
+  setRowStatus('row-lubd',      d.lubdStatus      || 'reserved');
+  setRowStatus('row-farm',      d.farmStatus      || 'reserved');
+  // Budget numbers + bars
+  updateBudgetDisplay(d);
   // Status banner
-  const banner  = document.getElementById('status-banner');
-  const stText  = document.getElementById('status-text');
-  if(d.status){
-    stText.textContent = d.status;
-    banner.classList.add('show');
-  } else {
-    banner.classList.remove('show');
-  }
+  const banner = document.getElementById('status-banner');
+  const stText = document.getElementById('status-text');
+  if(d.status){ stText.textContent = d.status; banner.classList.add('show'); }
+  else { banner.classList.remove('show'); }
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────
@@ -1062,6 +1196,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateCountdown, 1000);
   animateBudget();
   applyData(getSaved());
+  updateBudgetDisplay(getSaved());
 
   // During trip: scroll today's card into view
   const now = new Date();

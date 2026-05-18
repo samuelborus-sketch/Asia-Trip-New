@@ -1,6 +1,6 @@
-# Sam's Asia Trip 2025 — Parent Dashboard
+# Sam's Asia Trip 2026 — Parent Dashboard
 
-A single-page travel dashboard built for my parents to follow along on my Southeast Asia trip — **May 30 to June 25, 2025**.
+A single-page travel dashboard built for my parents to follow along on my Southeast Asia trip — **May 30 to June 25, 2026**.
 
 **Live site:** [your-url-here.pages.dev](https://your-url-here.pages.dev)
 
@@ -31,4 +31,4 @@ Works fully offline once loaded. Deploys as a static site on Cloudflare Pages.
 
 ## Updating trip info
 
-Open the site → scroll to **Update Trip Info** → enter password `sam2025` → fill in the status message or any missing booking details → Save. Changes persist in localStorage on that device.
+Open the site → scroll to **Update Trip Info** → enter password `sam2026` → fill in the status message or any missing booking details → Save. Changes persist in localStorage on that device.
