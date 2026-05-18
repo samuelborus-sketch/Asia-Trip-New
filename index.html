@@ -331,7 +331,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
 
   <div class="stats-row">
     <div class="stat-card">
-      <span class="stat-val">$6,463</span>
+      <span class="stat-val">$5,863</span>
       <span class="stat-key">Total Budget</span>
     </div>
     <div class="stat-card">
@@ -383,13 +383,12 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
         <span class="bl">Spending Est.</span>
       </div>
       <div class="bnum total">
-        <span class="ba">$6,463</span>
+        <span class="ba">$5,863</span>
         <span class="bl">Total Budget</span>
       </div>
     </div>
     <div class="pbar-wrap"><div class="pbar-paid" id="pbar-paid"></div><div class="pbar-reserved" id="pbar-res"></div></div>
     <div class="pbar-lbl"><span style="color:var(--paid)">■</span> $3,062 paid &nbsp;·&nbsp; <span style="color:var(--reserved)">■</span> $651 reserved &nbsp;·&nbsp; 57% committed of $6,463</div>
-    <div class="budget-note">💡 Note: Connor owes Reese $250.90</div>
   </div>
 
   <div class="budget-tables">
@@ -426,10 +425,9 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
         <tbody>
           <tr class="row-unpaid"><td>Food</td><td id="sp-food">$650</td><td class="st">⏳ Est.</td></tr>
           <tr class="row-unpaid"><td>Activities</td><td id="sp-acts">$700</td><td class="st">⏳ Est.</td></tr>
-          <tr class="row-unpaid"><td>Nightlife</td><td id="sp-night">$700</td><td class="st">⏳ Est.</td></tr>
-          <tr class="row-unpaid"><td>Shopping</td><td id="sp-shop">$400</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Nightlife</td><td id="sp-night">$500</td><td class="st">⏳ Est.</td></tr>
           <tr class="row-unpaid"><td>Pre-Trip</td><td id="sp-pre">$300</td><td class="st">⏳ Est.</td></tr>
-          <tr class="row-total"><td colspan="3"><strong id="spending-subtotal">Subtotal (spending): $2,750</strong></td></tr>
+          <tr class="row-total"><td colspan="3"><strong id="spending-subtotal">Subtotal (spending): $2,150</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -499,8 +497,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;b
       <div class="form-grid">
         <div class="fg"><label>Food</label><input type="text" id="ef-food" placeholder="$650"></div>
         <div class="fg"><label>Activities</label><input type="text" id="ef-acts" placeholder="$700"></div>
-        <div class="fg"><label>Nightlife</label><input type="text" id="ef-night" placeholder="$700"></div>
-        <div class="fg"><label>Shopping</label><input type="text" id="ef-shop" placeholder="$400"></div>
+        <div class="fg"><label>Nightlife</label><input type="text" id="ef-night" placeholder="$500"></div>
         <div class="fg"><label>Pre-Trip</label><input type="text" id="ef-pre" placeholder="$300"></div>
       </div>
 
@@ -1014,7 +1011,7 @@ const RESERVED_ITEMS = {
   lubd:      105.50,
   farm:      93.10,
 };
-const SPENDING_DEFAULTS = { food:650, acts:700, night:700, shop:400, pre:300 };
+const SPENDING_DEFAULTS = { food:650, acts:700, night:500, pre:300 };
 
 function calcTotals(d){
   // How much of reserved items are now paid
@@ -1025,11 +1022,11 @@ function calcTotals(d){
     else stillReserved += RESERVED_ITEMS[k];
   });
   const confirmed = BASE_PAID + reservedPaid;
-  const spending = ['food','acts','night','shop','pre'].reduce((sum,k) => {
+  const spending = ['food','acts','night','pre'].reduce((sum,k) => {
     const val = parseFloat((d['sp_'+k] || '').replace(/[^0-9.]/g,''));
     return sum + (isNaN(val) ? SPENDING_DEFAULTS[k] : val);
   }, 0);
-  return { confirmed, stillReserved, spending, total: 6462.93 };
+  return { confirmed, stillReserved, spending, total: 5862.93 };
 }
 
 function animateBudget(){
@@ -1059,7 +1056,7 @@ function updateBudgetDisplay(d){
   const lbl = document.querySelector('.pbar-lbl');
   if(lbl) lbl.innerHTML =
     `<span style="color:var(--paid)">■</span> $${Math.round(confirmed).toLocaleString()} paid &nbsp;·&nbsp; ` +
-    `<span style="color:var(--reserved)">■</span> $${Math.round(stillReserved).toLocaleString()} reserved &nbsp;·&nbsp; ${commitPct}% committed of $6,463`;
+    `<span style="color:var(--reserved)">■</span> $${Math.round(stillReserved).toLocaleString()} reserved &nbsp;·&nbsp; ${commitPct}% committed of $5,863`;
 
   // Update spending table cells
   const keys = ['food','acts','night','shop','pre'];
@@ -1123,7 +1120,7 @@ function showForm(){
     if(sel) sel.value = s[k+'Status'] || 'reserved';
   });
   // Spending fields
-  ['food','acts','night','shop','pre'].forEach(k => {
+  ['food','acts','night','pre'].forEach(k => {
     const el = document.getElementById('ef-'+k);
     if(el) el.value = s['sp_'+k] || '';
   });
@@ -1144,7 +1141,6 @@ function saveEdits(){
     sp_food:  document.getElementById('ef-food').value.trim(),
     sp_acts:  document.getElementById('ef-acts').value.trim(),
     sp_night: document.getElementById('ef-night').value.trim(),
-    sp_shop:  document.getElementById('ef-shop').value.trim(),
     sp_pre:   document.getElementById('ef-pre').value.trim(),
   };
   try{ localStorage.setItem('asiaTripData_v2', JSON.stringify(data)); }catch(e){}
