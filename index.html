@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam's Asia Trip 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#09090b;
+  --surface:#111113;
+  --surface2:#18181b;
+  --border:#27272a;
+  --text:#e4e4e7;
+  --muted:#71717a;
+  --gold:#d4a853;
+  --bangkok:#a78bfa;
+  --chiangmai:#4ade80;
+  --vietnam:#60a5fa;
+  --phuket:#e879f9;
+  --bali:#34d399;
+  --paid:#4ade80;
+  --unpaid:#fbbf24;
+  --r:12px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(9,9,11,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  height:54px;padding:0 1.25rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.nav-brand{
+  font-family:'Playfair Display',serif;color:var(--gold);font-size:.95rem;font-weight:700;
+  text-decoration:none;white-space:nowrap;margin-right:auto;flex-shrink:0;
+}
+.nav-links{display:flex;align-items:center;gap:.15rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:500;
+  padding:.3rem .6rem;border-radius:6px;white-space:nowrap;transition:color .15s,background .15s;
+}
+.nav-links a:hover{color:var(--text);background:var(--surface2)}
+
+/* ── LAYOUT ── */
+main{padding-top:54px;max-width:880px;margin:0 auto;padding-left:1rem;padding-right:1rem}
+section{padding:2.75rem 0}
+section+section{border-top:1px solid var(--border)}
+h2{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--gold);margin-bottom:1.5rem}
+
+/* ── STATUS BANNER ── */
+#status-banner{
+  background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(212,168,83,.05));
+  border:1px solid rgba(212,168,83,.35);border-radius:var(--r);
+  padding:1rem 1.25rem;margin-bottom:1.75rem;
+  font-size:.92rem;display:none;
+}
+#status-banner.show{display:block}
+#status-banner strong{color:var(--gold)}
+
+/* ── HERO ── */
+#hero{text-align:center;padding:3.5rem 0 2.75rem;border-top:none!important}
+#hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,6vw,3.4rem);color:var(--gold);
+  margin-bottom:.45rem;line-height:1.1;
+}
+#hero .subtitle{color:var(--muted);font-size:.95rem;margin-bottom:2.5rem;letter-spacing:.02em}
+
+/* ── COUNTDOWN ── */
+.cd-wrap{margin:0 auto 2.5rem;max-width:580px}
+.cd-label{
+  font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:.75rem;
+}
+.cd-units{display:flex;justify-content:center;gap:.65rem;flex-wrap:wrap}
+.cd-unit{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);
+  padding:.9rem 1.1rem;min-width:76px;text-align:center;
+}
+.cd-num{
+  font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;
+  color:var(--gold);line-height:1;display:block;
+}
+.cd-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;display:block}
+.cd-badge{
+  display:inline-block;font-family:'Playfair Display',serif;font-size:1.65rem;
+  padding:1.1rem 2rem;border-radius:var(--r);line-height:1.2;
+}
+.cd-badge.live{color:var(--gold);background:rgba(212,168,83,.08);border:1px solid rgba(212,168,83,.2)}
+.cd-badge.done{color:var(--bali);background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2)}
+
+/* ── STATS ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;max-width:560px;margin:0 auto}
+.stat-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:.9rem .75rem;text-align:center}
+.stat-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold);display:block;line-height:1.1}
+.stat-key{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;display:block}
+
+/* ── LEGEND ── */
+.legend{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap;margin-top:1.85rem}
+.legend-pill{display:flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:600;color:var(--muted)}
+.legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;flex-direction:column;gap:.55rem}
+.dest-header{
+  display:flex;align-items:center;gap:.65rem;
+  margin:1.5rem 0 .65rem;font-size:.68rem;font-weight:800;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--muted);
+}
+.dest-header::before,.dest-header::after{content:'';flex:1;height:1px;background:var(--border)}
+.dest-header span{white-space:nowrap;padding:0 .4rem}
+
+.day-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-left-width:3px;border-left-style:solid;border-left-color:transparent;
+  border-radius:var(--r);
+  padding:.9rem 1.1rem;position:relative;overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+}
+.day-card:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,.35)}
+.day-card.is-flight{background:rgba(96,165,250,.04);border-top-style:dashed;border-right-style:dashed;border-bottom-style:dashed}
+.day-card.is-today{
+  background:var(--surface2)!important;
+  box-shadow:0 0 0 1px rgba(212,168,83,.3),0 6px 28px rgba(0,0,0,.5)!important;
+  border-left-color:var(--gold)!important;
+}
+.day-card.is-today::after{
+  content:'TODAY';position:absolute;top:.7rem;right:.75rem;
+  font-size:.58rem;font-weight:800;letter-spacing:.12em;
+  color:var(--gold);background:rgba(212,168,83,.12);border:1px solid rgba(212,168,83,.25);
+  padding:.18rem .45rem;border-radius:4px;
+}
+.day-card.is-past{opacity:.48}
+
+.card-head{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.4rem}
+.card-day{
+  font-size:.68rem;font-weight:700;color:var(--muted);
+  white-space:nowrap;min-width:66px;padding-top:.1rem;flex-shrink:0;
+}
+.card-date{font-size:.62rem;color:var(--muted);display:block;margin-top:.05rem}
+.card-title{font-size:.92rem;font-weight:600;color:var(--text);flex:1;line-height:1.35}
+.flight-tag{
+  display:inline-flex;align-items:center;gap:.25rem;
+  font-size:.65rem;font-weight:700;letter-spacing:.04em;
+  background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.25);
+  color:#60a5fa;padding:.18rem .45rem;border-radius:4px;margin-right:.4rem;
+}
+.card-acts{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.15rem}
+.card-acts li{font-size:.78rem;color:var(--muted);padding-left:.9rem;position:relative}
+.card-acts li::before{content:'·';position:absolute;left:.25rem}
+
+/* ── BUDGET ── */
+.budget-summary{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.4rem;margin-bottom:1.4rem;
+}
+.budget-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.2rem;text-align:center}
+.bnum{display:flex;flex-direction:column;gap:.15rem}
+.bnum .ba{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;line-height:1}
+.bnum .bl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bnum.paid .ba{color:var(--paid)}
+.bnum.remaining .ba{color:var(--unpaid)}
+.bnum.total .ba{color:var(--gold)}
+
+.pbar-wrap{background:var(--surface);border-radius:99px;height:9px;overflow:hidden;border:1px solid var(--border)}
+.pbar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#22c55e,#4ade80);width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1)}
+.pbar-lbl{font-size:.68rem;color:var(--muted);text-align:right;margin-top:.35rem}
+.budget-note{
+  margin-top:1rem;font-size:.79rem;color:var(--muted);
+  padding:.6rem .875rem;background:rgba(212,168,83,.06);
+  border-left:2px solid var(--gold);border-radius:0 6px 6px 0;
+}
+
+.budget-tables{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.4rem}
+.btable-wrap h3{
+  font-family:'Inter',sans-serif;font-size:.67rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;
+}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+th{
+  text-align:left;font-size:.63rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);padding:.38rem .55rem;border-bottom:1px solid var(--border);
+}
+td{padding:.45rem .55rem;border-bottom:1px solid rgba(39,39,42,.5);vertical-align:top;line-height:1.35}
+tr:last-child td{border-bottom:none}
+.row-paid td{color:var(--text)}
+.row-paid .st{color:var(--paid);font-weight:600;white-space:nowrap}
+.row-unpaid td{color:var(--muted)}
+.row-unpaid .st{color:var(--unpaid);font-weight:600;white-space:nowrap}
+.row-total{background:rgba(212,168,83,.05)}
+.row-total td{font-weight:700;color:var(--gold);border-top:1px solid var(--border)!important;border-bottom:none!important}
+.tbd{color:var(--unpaid);font-style:italic}
+
+/* ── EDIT ── */
+.edit-toggle{text-align:center;margin-bottom:1.4rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.6rem 1.2rem;border-radius:8px;font-size:.82rem;font-weight:600;
+  cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all .2s;
+}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,168,83,.06)}
+.btn-gold{background:var(--gold);color:#000}
+.btn-gold:hover{background:#c89940}
+
+.edit-panel{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.4rem;display:none;
+}
+.edit-panel.open{display:block}
+
+.pw-gate{text-align:center;padding:.5rem}
+.pw-gate p{color:var(--muted);font-size:.82rem;margin-bottom:1rem}
+.pw-row{display:flex;gap:.5rem;justify-content:center;max-width:300px;margin:0 auto}
+.pw-err{color:#ef4444;font-size:.72rem;margin-top:.5rem;display:none}
+
+input[type=password],input[type=text],textarea{
+  background:var(--surface2);border:1px solid var(--border);border-radius:8px;
+  color:var(--text);font-family:'Inter',sans-serif;font-size:.83rem;
+  padding:.58rem .8rem;outline:none;transition:border-color .2s;
+}
+input[type=password]:focus,input[type=text]:focus,textarea:focus{border-color:var(--gold)}
+input.err-shake{border-color:#ef4444;animation:shake .35s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+.ef-form{display:none}
+.ef-form.show{display:block}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.fg{margin-bottom:.9rem}
+.fg label{display:block;font-size:.68rem;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem}
+.fg input,.fg textarea{width:100%}
+textarea{resize:vertical;min-height:80px}
+.form-foot{display:flex;align-items:center;justify-content:flex-end;gap:.75rem;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--border)}
+.saved-note{font-size:.74rem;color:var(--paid);display:none;align-items:center;gap:.3rem}
+.saved-note.show{display:flex}
+
+/* ── INFO ── */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem}
+.info-card.full{grid-column:1/-1}
+.info-card h3{font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+
+.contact-item{padding:.55rem 0;border-bottom:1px solid var(--border)}
+.contact-item:last-child{border-bottom:none;padding-bottom:0}
+.cl{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.cp{font-size:.84rem;font-weight:600;color:var(--text);font-family:monospace;margin-top:.1rem}
+
+.accom-item{display:flex;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.8rem}
+.accom-item:last-child{border-bottom:none}
+.accom-dates{color:var(--muted);font-size:.7rem;white-space:nowrap;min-width:72px;padding-top:.1rem;flex-shrink:0}
+.accom-name{font-weight:600;color:var(--text)}
+.accom-loc{color:var(--muted);font-size:.72rem}
+
+.flight-item{padding:.55rem 0;border-bottom:1px solid var(--border)}
+.flight-item:last-child{border-bottom:none}
+.flight-route{font-weight:600;color:var(--text);font-size:.83rem}
+.flight-dt{font-size:.72rem;color:var(--muted);margin-top:.12rem}
+
+.visa-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.visa-item:last-child{border-bottom:none}
+.vi-country{font-weight:600;color:var(--text);font-size:.83rem;margin-bottom:.15rem}
+.vi-info{color:var(--muted);font-size:.79rem}
+.badge-ok{display:inline-block;font-size:.62rem;font-weight:700;color:var(--paid);background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);padding:.1rem .38rem;border-radius:4px;margin-left:.25rem}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.73rem;border-top:1px solid var(--border)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .budget-tables{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+  .info-card.full{grid-column:auto}
+  .form-grid{grid-template-columns:1fr}
+}
+@media(max-width:400px){
+  .cd-unit{min-width:64px;padding:.75rem .85rem}
+  .cd-num{font-size:1.8rem}
+  .bnum .ba{font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#hero" class="nav-brand">Sam's Asia Trip</a>
+  <div class="nav-links">
+    <a href="#timeline">📅 Timeline</a>
+    <a href="#budget">💰 Budget</a>
+    <a href="#edit">✏️ Edit</a>
+    <a href="#info">📋 Info</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+
+  <div id="status-banner">
+    <strong>📍 Status:</strong> <span id="status-text"></span>
+  </div>
+
+  <h1>Sam's Asia Trip 2025</h1>
+  <p class="subtitle">May 30 – June 25 &nbsp;·&nbsp; Thailand &nbsp;·&nbsp; Vietnam &nbsp;·&nbsp; Indonesia</p>
+
+  <div class="cd-wrap">
+    <div class="cd-label" id="cd-label">Departing In</div>
+    <div id="cd-display" class="cd-units"></div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="stat-val">$6,463</span>
+      <span class="stat-key">Total Budget</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">3</span>
+      <span class="stat-key">Countries</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">26</span>
+      <span class="stat-key">Nights</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">6</span>
+      <span class="stat-key">Flights</span>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-pill"><div class="legend-dot" style="background:var(--bangkok)"></div>Bangkok</div>
+    <div class="legend-pill"><div class="legend-dot" style="background:var(--chiangmai)"></div>Chiang Mai</div>
+    <div class="legend-pill"><div class="legend-dot" style="background:var(--vietnam)"></div>Hanoi + Ha Giang</div>
+    <div class="legend-pill"><div class="legend-dot" style="background:var(--phuket)"></div>Phuket</div>
+    <div class="legend-pill"><div class="legend-dot" style="background:var(--bali)"></div>Bali</div>
+  </div>
+
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section id="timeline">
+  <h2>Trip Timeline</h2>
+  <div class="timeline" id="timeline-container"></div>
+</section>
+
+<!-- ══ BUDGET ══ -->
+<section id="budget">
+  <h2>Budget Tracker</h2>
+
+  <div class="budget-summary">
+    <div class="budget-nums">
+      <div class="bnum paid">
+        <span class="ba">$3,713</span>
+        <span class="bl">Paid So Far</span>
+      </div>
+      <div class="bnum remaining">
+        <span class="ba">$3,250</span>
+        <span class="bl">Remaining</span>
+      </div>
+      <div class="bnum total">
+        <span class="ba">$6,463</span>
+        <span class="bl">Total Budget</span>
+      </div>
+    </div>
+    <div class="pbar-wrap"><div class="pbar-fill" id="pbar"></div></div>
+    <div class="pbar-lbl">$3,712.93 of $6,462.93 locked in &nbsp;(57%)</div>
+    <div class="budget-note">💡 Note: Connor owes Reese $250.90</div>
+  </div>
+
+  <div class="budget-tables">
+    <div class="btable-wrap">
+      <h3>✈️ Flights &amp; Accommodation</h3>
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr class="row-paid"><td>Dallas → Bangkok</td><td>$1,285.40</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>Bali → Dallas</td><td>$942.53</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>BKK → CNX</td><td>$73.10</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>CNX → HAN</td><td>$224.10</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>HAN → HKT</td><td>$273.90</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>HKT → DPS</td><td>$158.00</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>Bangkok Airbnb</td><td>$105.00</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>Mad Monkey Chiang Mai</td><td>$52.30</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>Ha Giang Loop Tour</td><td>$400.00</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>Lub d Phuket Patong</td><td>$105.50</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-paid"><td>The Farm Hostel Bali</td><td>$93.10</td><td class="st">✅ Paid</td></tr>
+          <tr class="row-unpaid">
+            <td>Hanoi Hostel <span class="tbd" id="hanoi-name-display">(TBD)</span></td>
+            <td><span id="hanoi-cost-display">~$25–30</span></td>
+            <td class="st">⏳ TBD</td>
+          </tr>
+          <tr class="row-total"><td colspan="3"><strong>Subtotal (paid): $3,712.93</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="btable-wrap">
+      <h3>💸 Spending Budget</h3>
+      <table>
+        <thead><tr><th>Category</th><th>Budget</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr class="row-unpaid"><td>Food</td><td>$650</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Activities</td><td>$700</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Nightlife</td><td>$700</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Shopping</td><td>$400</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-unpaid"><td>Pre-Trip</td><td>$300</td><td class="st">⏳ Est.</td></tr>
+          <tr class="row-total"><td colspan="3"><strong>Subtotal (spending): $2,750</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDIT ══ -->
+<section id="edit">
+  <h2>Update Trip Info</h2>
+  <p style="color:var(--muted);font-size:.85rem;margin-top:-.75rem;margin-bottom:1.4rem">
+    Sam can update the status message and any missing booking details here. Changes save to this browser automatically.
+  </p>
+
+  <div class="edit-toggle">
+    <button class="btn btn-outline" id="edit-btn" onclick="toggleEdit()">🔒 Unlock Edit Mode</button>
+  </div>
+
+  <div class="edit-panel" id="edit-panel">
+    <div class="pw-gate" id="pw-gate">
+      <p>Enter the password to edit trip information</p>
+      <div class="pw-row">
+        <input type="password" id="pw-input" placeholder="Password" onkeydown="if(event.key==='Enter')checkPw()">
+        <button class="btn btn-gold" onclick="checkPw()">Unlock</button>
+      </div>
+      <p class="pw-err" id="pw-err">Incorrect password — try again</p>
+    </div>
+
+    <div class="ef-form" id="ef-form">
+      <div class="form-grid">
+        <div class="fg">
+          <label>Hanoi Hostel Name</label>
+          <input type="text" id="ef-hanoi-name" placeholder="e.g. Old Quarter Backpackers">
+        </div>
+        <div class="fg">
+          <label>Hanoi Hostel Cost</label>
+          <input type="text" id="ef-hanoi-cost" placeholder="e.g. $28 / night">
+        </div>
+      </div>
+      <div class="fg">
+        <label>Ha Giang Tour Company</label>
+        <input type="text" id="ef-hagiang" placeholder="e.g. Ha Giang Adventure Tours">
+      </div>
+      <div class="fg">
+        <label>Status Message for Parents</label>
+        <textarea id="ef-status" placeholder="e.g. Currently in Chiang Mai — everything's great! Had an incredible time at the elephant sanctuary today."></textarea>
+      </div>
+      <div class="form-foot">
+        <div class="saved-note" id="saved-note">✓ Saved!</div>
+        <button class="btn btn-gold" onclick="saveEdits()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEED TO KNOW ══ -->
+<section id="info">
+  <h2>Need to Know</h2>
+  <div class="info-grid">
+
+    <div class="info-card">
+      <h3>🚨 Emergency Contacts</h3>
+      <div class="contact-item">
+        <div class="cl">US Embassy — Bangkok, Thailand</div>
+        <div class="cp">+66 2 205 4000</div>
+      </div>
+      <div class="contact-item">
+        <div class="cl">US Embassy — Hanoi, Vietnam</div>
+        <div class="cp">+84 24 3850 5000</div>
+      </div>
+      <div class="contact-item">
+        <div class="cl">BIMC Hospital — Canggu, Bali</div>
+        <div class="cp">+62 361 3000 911</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h3>🛂 Entry Requirements</h3>
+      <div class="visa-item">
+        <div class="vi-country">🇹🇭 Thailand</div>
+        <div class="vi-info">No visa needed — US citizens get 30 days on arrival</div>
+      </div>
+      <div class="visa-item">
+        <div class="vi-country">🇻🇳 Vietnam</div>
+        <div class="vi-info">E-Visa obtained in advance<span class="badge-ok">✅ DONE</span></div>
+      </div>
+      <div class="visa-item">
+        <div class="vi-country">🇮🇩 Indonesia (Bali)</div>
+        <div class="vi-info">Visa on Arrival at Bali airport — $35 USD cash required</div>
+      </div>
+    </div>
+
+    <div class="info-card full">
+      <h3>🏨 Where Sam Is Staying</h3>
+      <div class="accom-item">
+        <div class="accom-dates">Jun 1–5</div>
+        <div><div class="accom-name">Airbnb</div><div class="accom-loc">Bangkok, Thailand 🇹🇭</div></div>
+      </div>
+      <div class="accom-item">
+        <div class="accom-dates">Jun 5–8</div>
+        <div><div class="accom-name">Mad Monkey Hostel</div><div class="accom-loc">Chiang Mai, Thailand 🇹🇭</div></div>
+      </div>
+      <div class="accom-item">
+        <div class="accom-dates">Jun 8</div>
+        <div>
+          <div class="accom-name" id="hanoi-accom-display">Hanoi Hostel (TBD)</div>
+          <div class="accom-loc">Hanoi, Vietnam 🇻🇳</div>
+        </div>
+      </div>
+      <div class="accom-item">
+        <div class="accom-dates">Jun 9–13</div>
+        <div><div class="accom-name">Ha Giang Loop Homestays</div><div class="accom-loc">Ha Giang Province, Vietnam 🇻🇳 — included in tour</div></div>
+      </div>
+      <div class="accom-item">
+        <div class="accom-dates">Jun 14</div>
+        <div><div class="accom-name">Airport Guesthouse (near Noi Bai)</div><div class="accom-loc">Hanoi, Vietnam 🇻🇳</div></div>
+      </div>
+      <div class="accom-item">
+        <div class="accom-dates">Jun 15–20</div>
+        <div><div class="accom-name">Lub d Phuket Patong</div><div class="accom-loc">Phuket, Thailand 🇹🇭</div></div>
+      </div>
+      <div class="accom-item">
+        <div class="accom-dates">Jun 20–25</div>
+        <div><div class="accom-name">The Farm Hostel</div><div class="accom-loc">Canggu, Bali, Indonesia 🇮🇩</div></div>
+      </div>
+    </div>
+
+    <div class="info-card full">
+      <h3>✈️ All 6 Flights</h3>
+      <div class="flight-item">
+        <div class="flight-route">🇺🇸 Dallas (DFW) → Bangkok (BKK) 🇹🇭</div>
+        <div class="flight-dt">May 30, 2025 · Departs 10:55pm CT · Korean Air</div>
+      </div>
+      <div class="flight-item">
+        <div class="flight-route">🇹🇭 Bangkok Don Mueang (DMK) → Chiang Mai (CNX) 🇹🇭</div>
+        <div class="flight-dt">June 5, 2025 · Morning departure</div>
+      </div>
+      <div class="flight-item">
+        <div class="flight-route">🇹🇭 Chiang Mai (CNX) → Hanoi (HAN) 🇻🇳</div>
+        <div class="flight-dt">June 8, 2025 · Morning departure</div>
+      </div>
+      <div class="flight-item">
+        <div class="flight-route">🇻🇳 Hanoi (HAN) → Phuket (HKT) 🇹🇭</div>
+        <div class="flight-dt">June 15, 2025</div>
+      </div>
+      <div class="flight-item">
+        <div class="flight-route">🇹🇭 Phuket (HKT) → Bali / Denpasar (DPS) 🇮🇩</div>
+        <div class="flight-dt">June 20, 2025</div>
+      </div>
+      <div class="flight-item">
+        <div class="flight-route">🇮🇩 Bali (DPS) → Dallas (DFW) 🇺🇸</div>
+        <div class="flight-dt">June 25, 2025 · Departs 4:30pm</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Built for Sam's parents &nbsp;·&nbsp; Refreshes automatically &nbsp;·&nbsp; All times local
+</footer>
+
+<script>
+// ── TRIP CONFIG ───────────────────────────────────────────────────────────
+
+const DEPARTURE = new Date('2025-05-30T22:55:00-05:00');
+const TRIP_END  = new Date('2025-06-26T04:00:00+00:00');
+
+const DESTS = {
+  pre:       { color:'#d4a853', label:'Departure Day' },
+  bangkok:   { color:'#a78bfa', label:'Bangkok 🇹🇭' },
+  chiangmai: { color:'#4ade80', label:'Chiang Mai 🌿' },
+  vietnam:   { color:'#60a5fa', label:'Hanoi + Ha Giang 🇻🇳' },
+  phuket:    { color:'#e879f9', label:'Phuket 🏖️' },
+  bali:      { color:'#34d399', label:'Bali 🌴' },
+};
+
+const ITINERARY = [
+  {
+    day:0, date:'2025-05-30', dest:'pre', flag:'✈️',
+    city:'Dallas → Bangkok', isFlight:true,
+    acts:[
+      'Depart Dallas DFW at 10:55pm CT',
+      'Korean Air — overnight flight, routed via Seoul or direct',
+      'Arrives Bangkok BKK on June 1st'
+    ]
+  },
+  {
+    day:1, date:'2025-06-01', dest:'bangkok', flag:'🇹🇭',
+    city:'Bangkok — Arrival Day',
+    acts:[
+      'Arrive Bangkok BKK at 10:00am',
+      'Airport rail to Phaya Thai → Grab to Airbnb',
+      'Check in, rest, explore the neighborhood',
+      'Street food dinner',
+      'Khao San Road first night'
+    ]
+  },
+  {
+    day:2, date:'2025-06-02', dest:'bangkok', flag:'🇹🇭',
+    city:'Bangkok — Grand Palace + Muay Thai',
+    acts:[
+      'Grand Palace + Wat Pho in the morning',
+      'Pratunam + Platinum Fashion Mall afternoon',
+      'Lumpinee Muay Thai Stadium at 6:30pm',
+      'Khao San Road night'
+    ]
+  },
+  {
+    day:3, date:'2025-06-03', dest:'bangkok', flag:'🇹🇭',
+    city:'Bangkok — Markets Day',
+    acts:[
+      'Chatuchak Weekend Market (BTS to Mo Chit)',
+      'Jodd Fairs Night Market',
+      'Khao San Road night'
+    ]
+  },
+  {
+    day:4, date:'2025-06-04', dest:'bangkok', flag:'🇹🇭',
+    city:'Bangkok — Canal Tour',
+    acts:[
+      'Canal boat tour of Bangkok khlongs',
+      'Chill day + shopping',
+      'Final Khao San Road night in Bangkok'
+    ]
+  },
+  {
+    day:5, date:'2025-06-05', dest:'chiangmai', flag:'✈️',
+    city:'Bangkok → Chiang Mai', isFlight:true,
+    acts:[
+      'Flight: Bangkok Don Mueang (DMK) → Chiang Mai (CNX) — morning departure',
+      'Arrive Chiang Mai, check into Mad Monkey Hostel',
+      'Old City temple walk',
+      'Zoe in Yellow nightlife area'
+    ]
+  },
+  {
+    day:6, date:'2025-06-06', dest:'chiangmai', flag:'🌿',
+    city:'Chiang Mai — Elephants + Walking Street',
+    acts:[
+      'Elephant Nature Park half-day (ethical sanctuary — no riding)',
+      'Saturday Walking Street market',
+      'Warm Up Café nightlife'
+    ]
+  },
+  {
+    day:7, date:'2025-06-07', dest:'chiangmai', flag:'🌿',
+    city:'Chiang Mai — Doi Suthep + Muay Thai',
+    acts:[
+      'Doi Suthep temple + Sticky Waterfall day trip',
+      'Nimman Road shopping',
+      'Muay Thai at Thapae Boxing Stadium'
+    ]
+  },
+  {
+    day:8, date:'2025-06-08', dest:'vietnam', flag:'✈️',
+    city:'Chiang Mai → Hanoi', isFlight:true,
+    acts:[
+      'Flight: Chiang Mai (CNX) → Hanoi (HAN) — morning departure',
+      'Arrive Hanoi, check into hostel',
+      'Ho Chi Minh Mausoleum area + Hoan Kiem Lake',
+      'Old Quarter walk',
+      'Bia Hoi Beer Street — 25¢ draft beers!'
+    ]
+  },
+  {
+    day:9, date:'2025-06-09', dest:'vietnam', flag:'🇻🇳',
+    city:'Hanoi + Night Bus to Ha Giang',
+    acts:[
+      'Morning: Train Street, Temple of Literature',
+      'Afternoon free in Hanoi',
+      '8–9pm: Night bus departs Hanoi → Ha Giang (~4.5 hrs)',
+      'Arrive Ha Giang around 1am'
+    ]
+  },
+  {
+    day:10, date:'2025-06-10', dest:'vietnam', flag:'🏍️',
+    city:'Ha Giang Loop — Day 1',
+    acts:[
+      'Depart with Easy Rider guide',
+      'Quan Ba Heaven Gate — twin Fairy Bosom hills panorama',
+      'Dong Van Karst Plateau Geopark',
+      'Homestay night 1'
+    ]
+  },
+  {
+    day:11, date:'2025-06-11', dest:'vietnam', flag:'🏍️',
+    city:'Ha Giang Loop — Day 2',
+    acts:[
+      'Ma Pi Leng Pass — stunning viewpoint above Nho Que River gorge',
+      'Meo Vac town',
+      'Ethnic minority villages',
+      'Homestay night 2'
+    ]
+  },
+  {
+    day:12, date:'2025-06-12', dest:'vietnam', flag:'🏍️',
+    city:'Ha Giang Loop — Day 3',
+    acts:[
+      'Lo Lo Chai village',
+      'Lung Cu Flag Tower — northernmost point of Vietnam, near Chinese border',
+      'Homestay night 3'
+    ]
+  },
+  {
+    day:13, date:'2025-06-13', dest:'vietnam', flag:'🏍️',
+    city:'Ha Giang Loop — Day 4 (Return)',
+    acts:[
+      'Scenic return ride to Ha Giang City, arrive ~3pm',
+      'Dinner in Ha Giang town',
+      '7–9pm: Night bus back to Hanoi',
+      'Arrive Hanoi ~1–2am'
+    ]
+  },
+  {
+    day:14, date:'2025-06-14', dest:'vietnam', flag:'🇻🇳',
+    city:'Hanoi — Final Vietnam Day',
+    acts:[
+      'Arrive back in Hanoi ~2am — airport guesthouse near Noi Bai',
+      'Full day: Old Quarter, Dong Xuan Market, street food',
+      'Final Bia Hoi night in Vietnam',
+      'Flying to Phuket tomorrow'
+    ]
+  },
+  {
+    day:15, date:'2025-06-15', dest:'phuket', flag:'✈️',
+    city:'Hanoi → Phuket', isFlight:true,
+    acts:[
+      'Flight: Hanoi (HAN) → Phuket (HKT)',
+      'Arrive Phuket, check into Lub d Phuket Patong',
+      'First night on Bangla Road'
+    ]
+  },
+  {
+    day:16, date:'2025-06-16', dest:'phuket', flag:'🇹🇭',
+    city:'Phuket — Phi Phi Islands',
+    acts:[
+      'Phi Phi Islands full-day speedboat tour',
+      'Maya Bay, Monkey Beach, snorkeling, lunch included',
+      'Promthep Cape sunset',
+      'Bangla Road night'
+    ]
+  },
+  {
+    day:17, date:'2025-06-17', dest:'phuket', flag:'🇹🇭',
+    city:'Phuket — James Bond Island + Surf',
+    acts:[
+      'Phang Nga Bay + James Bond Island — half-day sea kayak tour',
+      'Kata Beach surf lesson in the afternoon',
+      'Bangla Road night'
+    ]
+  },
+  {
+    day:18, date:'2025-06-18', dest:'phuket', flag:'🇹🇭',
+    city:'Phuket — ATV + Night Market',
+    acts:[
+      'ATV jungle tour or island scooter exploration',
+      'Patong Beach afternoon',
+      'Bang La Night Market',
+      'Bangla Road night'
+    ]
+  },
+  {
+    day:19, date:'2025-06-19', dest:'phuket', flag:'🇹🇭',
+    city:'Phuket — Beach Day',
+    acts:[
+      'Chill beach day at Patong Beach',
+      'Promthep Cape for sunset',
+      'Final Bangla Road night'
+    ]
+  },
+  {
+    day:20, date:'2025-06-20', dest:'bali', flag:'✈️',
+    city:'Phuket → Bali', isFlight:true,
+    acts:[
+      'Flight: Phuket (HKT) → Bali / Denpasar (DPS)',
+      'Arrive Bali — Visa on Arrival ($35 USD cash needed)',
+      'Grab to The Farm Hostel in Canggu',
+      'Scooter rental, Canggu beach bars'
+    ]
+  },
+  {
+    day:21, date:'2025-06-21', dest:'bali', flag:'🌴',
+    city:'Canggu — Beach Club Day',
+    acts:[
+      'Chill Canggu day exploring by scooter',
+      'FINNS Beach Club — sunset, infinity pool, cocktails'
+    ]
+  },
+  {
+    day:22, date:'2025-06-22', dest:'bali', flag:'🌋',
+    city:'Mount Batur Sunrise Trek',
+    acts:[
+      '2am guide pickup → summit Mount Batur at sunrise (~6am)',
+      'Cook eggs in volcanic steam vents on the summit',
+      'Sleep and recover in the afternoon',
+      'Canggu bars in the evening'
+    ]
+  },
+  {
+    day:23, date:'2025-06-23', dest:'bali', flag:'🏝️',
+    city:'Gili Trawangan Day Trip',
+    acts:[
+      'Fast boat from Padang Bai to Gili T',
+      'Car-free island — snorkeling with sea turtles',
+      'Beach party scene',
+      'Return to Canggu'
+    ]
+  },
+  {
+    day:24, date:'2025-06-24', dest:'bali', flag:'🌴',
+    city:'Ubud + Final Night Out',
+    acts:[
+      'Tegalalang Rice Terraces + Ubud Monkey Forest by scooter',
+      'Ubud market — final souvenir shopping',
+      'Surf lesson at Batu Bolong Beach',
+      'Final dinner and last night out in Canggu'
+    ]
+  },
+  {
+    day:25, date:'2025-06-25', dest:'bali', flag:'✈️',
+    city:'Bali → Dallas (Home!)', isFlight:true,
+    acts:[
+      'Check out The Farm Hostel',
+      'Last Canggu coffee ☕',
+      '1pm Grab to DPS airport',
+      'Flight: Bali (DPS) → Dallas (DFW) at 4:30pm',
+      'Trip complete! 🎉'
+    ]
+  }
+];
+
+// Build date → day lookup
+const DATE_TO_DAY = {};
+ITINERARY.forEach(i => { DATE_TO_DAY[i.date] = i.day; });
+
+// ── COUNTDOWN ─────────────────────────────────────────────────────────────
+
+function pad(n){ return String(n).padStart(2,'0'); }
+
+function updateCountdown(){
+  const now  = new Date();
+  const disp = document.getElementById('cd-display');
+  const lbl  = document.getElementById('cd-label');
+
+  if(now < DEPARTURE){
+    const diff = DEPARTURE - now;
+    const days = Math.floor(diff / 864e5);
+    const hrs  = Math.floor((diff % 864e5) / 36e5);
+    const mins = Math.floor((diff % 36e5) / 6e4);
+    const secs = Math.floor((diff % 6e4) / 1e3);
+    lbl.textContent = 'Departing In';
+    disp.innerHTML =
+      unit(days,'Days') + unit(pad(hrs),'Hours') +
+      unit(pad(mins),'Mins') + unit(pad(secs),'Secs');
+  } else if(now <= TRIP_END){
+    const todayStr = localDateStr(now);
+    const dayNum   = DATE_TO_DAY[todayStr] !== undefined
+      ? DATE_TO_DAY[todayStr]
+      : Math.min(Math.floor((now - DEPARTURE) / 864e5), 25);
+    lbl.textContent = 'Currently On Trip';
+    disp.innerHTML = `<div class="cd-badge live">Day ${dayNum} of 25</div>`;
+  } else {
+    lbl.textContent = '';
+    disp.innerHTML = `<div class="cd-badge done">Trip Complete! 🎉</div>`;
+  }
+}
+
+function unit(n, l){
+  return `<div class="cd-unit"><span class="cd-num">${n}</span><span class="cd-lbl">${l}</span></div>`;
+}
+
+// Return YYYY-MM-DD in local time
+function localDateStr(d){
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const day = String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+}
+
+// ── TIMELINE ──────────────────────────────────────────────────────────────
+
+function renderTimeline(){
+  const container = document.getElementById('timeline-container');
+  const now       = new Date();
+  const todayStr  = localDateStr(now);
+  let lastDest    = null;
+
+  ITINERARY.forEach(item => {
+    // Section headers between destinations
+    if(item.dest !== 'pre' && item.dest !== lastDest){
+      const hdr = document.createElement('div');
+      hdr.className = 'dest-header';
+      hdr.innerHTML = `<span style="color:${DESTS[item.dest].color}">${DESTS[item.dest].label}</span>`;
+      container.appendChild(hdr);
+    }
+    lastDest = item.dest;
+
+    const isPast  = item.date < todayStr && now > DEPARTURE;
+    const isToday = item.date === todayStr && now >= DEPARTURE && now <= TRIP_END;
+    const color   = DESTS[item.dest].color;
+
+    const card = document.createElement('div');
+    card.className = [
+      'day-card',
+      item.isFlight ? 'is-flight' : '',
+      isToday       ? 'is-today'  : '',
+      isPast        ? 'is-past'   : '',
+    ].filter(Boolean).join(' ');
+
+    card.style.borderLeftColor = color;
+
+    // Format date display
+    const [y,mo,d] = item.date.split('-').map(Number);
+    const dateObj  = new Date(y, mo-1, d);
+    const dateStr  = dateObj.toLocaleDateString('en-US',{ month:'short', day:'numeric' });
+
+    const flightTag = item.isFlight
+      ? '<span class="flight-tag">✈️ FLIGHT</span>'
+      : '';
+    const check = isPast
+      ? ' <span style="color:var(--paid);font-weight:700">✓</span>'
+      : '';
+    const acts = item.acts.map(a => `<li>${a}</li>`).join('');
+
+    card.innerHTML = `
+      <div class="card-head">
+        <div class="card-day">
+          <span>Day ${item.day}${check}</span>
+          <span class="card-date">${dateStr}</span>
+        </div>
+        <div class="card-title">${flightTag}<span style="margin-right:.3rem">${item.flag}</span>${item.city}</div>
+      </div>
+      <ul class="card-acts">${acts}</ul>`;
+
+    container.appendChild(card);
+  });
+}
+
+// ── BUDGET BAR ────────────────────────────────────────────────────────────
+
+function animateBudget(){
+  const bar = document.getElementById('pbar');
+  const pct = (3712.93 / 6462.93 * 100).toFixed(1);
+  const obs = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting){
+      setTimeout(() => { bar.style.width = pct + '%'; }, 150);
+      obs.disconnect();
+    }
+  }, { threshold: 0.4 });
+  obs.observe(bar);
+}
+
+// ── EDIT PANEL ────────────────────────────────────────────────────────────
+
+let editUnlocked = false;
+
+function toggleEdit(){
+  const panel = document.getElementById('edit-panel');
+  const btn   = document.getElementById('edit-btn');
+  const isOpen = panel.classList.contains('open');
+  if(isOpen){
+    panel.classList.remove('open');
+    btn.textContent = '🔒 Unlock Edit Mode';
+  } else {
+    panel.classList.add('open');
+    btn.textContent = '✕ Close Edit';
+    if(editUnlocked) showForm();
+  }
+}
+
+function checkPw(){
+  const val = document.getElementById('pw-input').value;
+  const err = document.getElementById('pw-err');
+  const inp = document.getElementById('pw-input');
+  if(val === 'sam2025'){
+    editUnlocked = true;
+    err.style.display = 'none';
+    showForm();
+  } else {
+    inp.value = '';
+    err.style.display = 'block';
+    inp.classList.add('err-shake');
+    setTimeout(() => inp.classList.remove('err-shake'), 400);
+  }
+}
+
+function showForm(){
+  document.getElementById('pw-gate').style.display = 'none';
+  document.getElementById('ef-form').classList.add('show');
+  const s = getSaved();
+  document.getElementById('ef-hanoi-name').value = s.hanoiName || '';
+  document.getElementById('ef-hanoi-cost').value = s.hanoiCost || '';
+  document.getElementById('ef-hagiang').value    = s.hagiang   || '';
+  document.getElementById('ef-status').value     = s.status    || '';
+}
+
+function saveEdits(){
+  const data = {
+    hanoiName: document.getElementById('ef-hanoi-name').value.trim(),
+    hanoiCost: document.getElementById('ef-hanoi-cost').value.trim(),
+    hagiang:   document.getElementById('ef-hagiang').value.trim(),
+    status:    document.getElementById('ef-status').value.trim(),
+  };
+  try{ localStorage.setItem('asiaTripData_v2', JSON.stringify(data)); }catch(e){}
+  applyData(data);
+  const note = document.getElementById('saved-note');
+  note.classList.add('show');
+  setTimeout(() => note.classList.remove('show'), 2500);
+}
+
+function getSaved(){
+  try{ return JSON.parse(localStorage.getItem('asiaTripData_v2') || '{}'); }catch(e){ return {}; }
+}
+
+function applyData(d){
+  // Budget table — Hanoi name
+  const nn = document.getElementById('hanoi-name-display');
+  if(nn) nn.textContent = d.hanoiName ? d.hanoiName : '(TBD)';
+  // Budget table — Hanoi cost
+  const nc = document.getElementById('hanoi-cost-display');
+  if(nc) nc.textContent = d.hanoiCost ? d.hanoiCost : '~$25–30';
+  // Accommodation list — Hanoi
+  const na = document.getElementById('hanoi-accom-display');
+  if(na) na.textContent = d.hanoiName ? d.hanoiName : 'Hanoi Hostel (TBD)';
+  // Status banner
+  const banner  = document.getElementById('status-banner');
+  const stText  = document.getElementById('status-text');
+  if(d.status){
+    stText.textContent = d.status;
+    banner.classList.add('show');
+  } else {
+    banner.classList.remove('show');
+  }
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderTimeline();
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+  animateBudget();
+  applyData(getSaved());
+
+  // During trip: scroll today's card into view
+  const now = new Date();
+  if(now >= DEPARTURE && now <= TRIP_END){
+    setTimeout(() => {
+      const today = document.querySelector('.day-card.is-today');
+      if(today) today.scrollIntoView({ behavior:'smooth', block:'center' });
+    }, 700);
+  }
+});
+</script>
+</body>
+</html>

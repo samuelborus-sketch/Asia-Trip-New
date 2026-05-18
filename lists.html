@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Lists — Asia Trip 2025</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-brand-title">Asia Trip 2025</div>
+    <div class="nav-brand-sub">May 30 – June 25</div>
+  </div>
+  <a href="index.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="itinerary.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>Days</span>
+  </a>
+  <a href="budget.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+    <span>Budget</span>
+  </a>
+  <a href="lists.html" class="nav-btn active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+    <span>Lists</span>
+  </a>
+  <a href="reference.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+    <span>Info</span>
+  </a>
+  <a href="flights.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.3-.2.4-.6.5-1.1z"/></svg>
+    <span>Flights</span>
+  </a>
+</nav>
+
+<main>
+  <div class="sec-head">
+    <div class="sec-title serif">Lists</div>
+    <div class="sec-sub">Tap items to check them off · saves to this device</div>
+  </div>
+
+  <div class="list-tabs">
+    <button class="list-tab active" id="tab-cl" onclick="switchTab('cl')">Pre-Trip Checklist</button>
+    <button class="list-tab" id="tab-pk" onclick="switchTab('pk')">Packing List</button>
+  </div>
+
+  <!-- Checklist -->
+  <div id="view-cl">
+    <div class="progress-header">
+      <span class="prog-label">Items completed</span>
+      <span class="prog-count" id="cl-count">0 / 0</span>
+    </div>
+    <div class="progress-bar" style="margin-bottom:16px"><div class="progress-fill" id="cl-bar" style="width:0%"></div></div>
+    <div id="cl-groups"></div>
+    <div style="text-align:center;margin-top:8px"><button class="reset-btn" onclick="resetCL()">Reset checklist</button></div>
+  </div>
+
+  <!-- Packing -->
+  <div id="view-pk" style="display:none">
+    <div class="progress-header">
+      <span class="prog-label">Items packed</span>
+      <span class="prog-count" id="pk-count">0 / 0</span>
+    </div>
+    <div class="progress-bar" style="margin-bottom:16px"><div class="progress-fill" id="pk-bar" style="width:0%"></div></div>
+    <div id="pk-groups"></div>
+    <div style="text-align:center;margin-top:8px"><button class="reset-btn" onclick="resetPK()">Reset packing list</button></div>
+  </div>
+</main>
+
+<script src="data.js"></script>
+<script>
+let clChecked = load('at25_cl', []);
+let pkChecked = load('at25_pk', []);
+
+function renderList(groups, checked, countId, barId, groupsId, toggleFn) {
+  const total = groups.reduce((s, g) => s + g.items.length, 0);
+  const done = checked.length;
+  document.getElementById(countId).textContent = `${done} / ${total}`;
+  document.getElementById(barId).style.width = total ? (done / total * 100) + '%' : '0%';
+  document.getElementById(groupsId).innerHTML = groups.map(g => `
+    <div class="cl-group">
+      <div class="cl-group-title">${g.title}</div>
+      ${g.items.map(item => `
+        <div class="cl-item ${checked.includes(item.id) ? 'done' : ''}" onclick="${toggleFn}('${item.id}')">
+          <div class="checkbox"><span class="check-mark">✓</span></div>
+          <span class="cl-text">${item.text}</span>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+function renderCL() { renderList(CHECKLIST_GROUPS, clChecked, 'cl-count', 'cl-bar', 'cl-groups', 'toggleCL'); }
+function renderPK() { renderList(PACKING_GROUPS, pkChecked, 'pk-count', 'pk-bar', 'pk-groups', 'togglePK'); }
+
+function toggleCL(id) { const i=clChecked.indexOf(id); i>-1?clChecked.splice(i,1):clChecked.push(id); save('at25_cl',clChecked); renderCL(); }
+function togglePK(id) { const i=pkChecked.indexOf(id); i>-1?pkChecked.splice(i,1):pkChecked.push(id); save('at25_pk',pkChecked); renderPK(); }
+function resetCL() { if(!confirm('Reset checklist?'))return; clChecked=[]; save('at25_cl',clChecked); renderCL(); }
+function resetPK() { if(!confirm('Reset packing list?'))return; pkChecked=[]; save('at25_pk',pkChecked); renderPK(); }
+
+function switchTab(t) {
+  document.getElementById('view-cl').style.display = t==='cl'?'':'none';
+  document.getElementById('view-pk').style.display = t==='pk'?'':'none';
+  document.getElementById('tab-cl').classList.toggle('active', t==='cl');
+  document.getElementById('tab-pk').classList.toggle('active', t==='pk');
+}
+
+renderCL();
+renderPK();
+</script>
+</body>
+</html>

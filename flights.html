@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Flights — Asia Trip 2025</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-brand-title">Asia Trip 2025</div>
+    <div class="nav-brand-sub">May 30 – June 25</div>
+  </div>
+  <a href="index.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="itinerary.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>Days</span>
+  </a>
+  <a href="budget.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+    <span>Budget</span>
+  </a>
+  <a href="lists.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+    <span>Lists</span>
+  </a>
+  <a href="reference.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+    <span>Info</span>
+  </a>
+  <a href="flights.html" class="nav-btn active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.3-.2.4-.6.5-1.1z"/></svg>
+    <span>Flights</span>
+  </a>
+</nav>
+
+<main>
+  <div class="sec-head">
+    <div class="sec-title serif">Flights</div>
+    <div class="sec-sub">6 legs · $2,738 per person · 4 booked · 2 to book</div>
+  </div>
+
+  <div class="flights-total-card">
+    <div>
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);margin-bottom:4px">Total Flight Cost</div>
+      <div style="font-family:'DM Mono',monospace;font-size:26px;color:var(--gold)">$2,738 <span style="font-size:13px;color:var(--text-muted)">pp</span></div>
+    </div>
+    <div style="text-align:right">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+        <span class="flight-status st-booked">4 Booked</span>
+        <span class="flight-status st-tobook">2 To Book</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flight-card booked">
+    <div class="flight-top">
+      <div>
+        <div class="flight-route-row">
+          <span class="airport">DFW</span>
+          <div class="route-line"></div>
+          <span class="airport">BKK</span>
+        </div>
+        <div class="flight-date">May 30, 2025 → June 1, 2025</div>
+        <div class="flight-time">Departs 10:55pm · Arrives ~10:00am (+1)</div>
+      </div>
+      <span class="flight-status st-booked">✓ Booked</span>
+    </div>
+    <div class="flight-meta">
+      <span>Dallas DFW → Bangkok Suvarnabhumi</span>
+      <span class="flight-cost">$942 <span style="color:var(--text-muted);font-size:11px">pp</span></span>
+    </div>
+  </div>
+
+  <div class="flight-card booked">
+    <div class="flight-top">
+      <div>
+        <div class="flight-route-row">
+          <span class="airport">DMK</span>
+          <div class="route-line"></div>
+          <span class="airport">CNX</span>
+        </div>
+        <div class="flight-date">June 5, 2025 · Morning</div>
+        <div class="flight-time" style="color:#fbbf24">⚠️ Don Mueang (DMK) — NOT Suvarnabhumi (BKK)</div>
+      </div>
+      <span class="flight-status st-booked">✓ Booked</span>
+    </div>
+    <div class="flight-meta">
+      <span>Bangkok Don Mueang → Chiang Mai</span>
+      <span class="flight-cost">$51 <span style="color:var(--text-muted);font-size:11px">pp</span></span>
+    </div>
+  </div>
+
+  <div class="flight-card booked">
+    <div class="flight-top">
+      <div>
+        <div class="flight-route-row">
+          <span class="airport">CNX</span>
+          <div class="route-line"></div>
+          <span class="airport">HAN</span>
+        </div>
+        <div class="flight-date">June 8, 2025 · Morning</div>
+      </div>
+      <span class="flight-status st-booked">✓ Booked</span>
+    </div>
+    <div class="flight-meta">
+      <span>Chiang Mai → Hanoi Noi Bai</span>
+      <span class="flight-cost">$225 <span style="color:var(--text-muted);font-size:11px">pp</span></span>
+    </div>
+  </div>
+
+  <div class="flight-card tobook">
+    <div class="flight-top">
+      <div>
+        <div class="flight-route-row">
+          <span class="airport">HAN</span>
+          <div class="route-line"></div>
+          <span class="airport">HKT</span>
+        </div>
+        <div class="flight-date">June 15, 2025 · Target 9am–1pm departure</div>
+        <div class="flight-time">Buffer needed — Ha Giang bus returns ~2am Jun 14</div>
+      </div>
+      <span class="flight-status st-tobook">Book Now</span>
+    </div>
+    <div class="flight-meta">
+      <span>Hanoi → Phuket · Thai AirAsia or VietJet</span>
+      <span class="flight-cost">~$130 <span style="color:var(--text-muted);font-size:11px">pp</span></span>
+    </div>
+  </div>
+
+  <div class="flight-card tobook">
+    <div class="flight-top">
+      <div>
+        <div class="flight-route-row">
+          <span class="airport">HKT</span>
+          <div class="route-line"></div>
+          <span class="airport">DPS</span>
+        </div>
+        <div class="flight-date">June 20, 2025 · Target 10am–1pm departure</div>
+      </div>
+      <span class="flight-status st-tobook">Book Now</span>
+    </div>
+    <div class="flight-meta">
+      <span>Phuket → Bali Ngurah Rai · Indonesia AirAsia direct</span>
+      <span class="flight-cost">~$105 <span style="color:var(--text-muted);font-size:11px">pp</span></span>
+    </div>
+  </div>
+
+  <div class="flight-card booked">
+    <div class="flight-top">
+      <div>
+        <div class="flight-route-row">
+          <span class="airport">DPS</span>
+          <div class="route-line"></div>
+          <span class="airport">DFW</span>
+        </div>
+        <div class="flight-date">June 25, 2025</div>
+        <div class="flight-time">Departs 4:30pm · Arrive at DPS by 2pm for check-in</div>
+      </div>
+      <span class="flight-status st-booked">✓ Booked</span>
+    </div>
+    <div class="flight-meta">
+      <span>Bali Ngurah Rai → Dallas DFW</span>
+      <span class="flight-cost">$1,285 <span style="color:var(--text-muted);font-size:11px">pp</span></span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px">
+    <div class="section-lbl">Cost Breakdown</div>
+    <div class="fl-row"><span style="color:var(--text-dim)">DFW → BKK</span><span class="fl-cost">$942</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">DMK → CNX</span><span class="fl-cost">$51</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">CNX → HAN</span><span class="fl-cost">$225</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">HAN → HKT (est.)</span><span class="fl-cost">~$130</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">HKT → DPS (est.)</span><span class="fl-cost">~$105</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">DPS → DFW</span><span class="fl-cost">$1,285</span></div>
+    <div style="border-top:1px solid var(--border);margin-top:6px;padding-top:12px;display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:13px;color:var(--text-dim)">Total per person</span>
+      <span style="font-family:'DM Mono',monospace;font-size:18px;color:var(--gold)">$2,738</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+      <span style="font-size:13px;color:var(--text-dim)">Total both travelers</span>
+      <span style="font-family:'DM Mono',monospace;font-size:18px;color:var(--text)">$5,476</span>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

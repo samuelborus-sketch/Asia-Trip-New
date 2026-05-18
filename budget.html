@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Budget — Asia Trip 2025</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-brand-title">Asia Trip 2025</div>
+    <div class="nav-brand-sub">May 30 – June 25</div>
+  </div>
+  <a href="index.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="itinerary.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>Days</span>
+  </a>
+  <a href="budget.html" class="nav-btn active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+    <span>Budget</span>
+  </a>
+  <a href="lists.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+    <span>Lists</span>
+  </a>
+  <a href="reference.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+    <span>Info</span>
+  </a>
+  <a href="flights.html" class="nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.3-.2.4-.6.5-1.1z"/></svg>
+    <span>Flights</span>
+  </a>
+</nav>
+
+<main>
+  <div class="sec-head">
+    <div class="sec-title serif">Budget Tracker</div>
+    <div class="sec-sub">Log actual spend per category · saves to this device</div>
+  </div>
+
+  <div class="budget-overview">
+    <div class="bo-row"><span class="bo-label">Total Planned (pp)</span><span class="bo-val gold">$6,007</span></div>
+    <div class="bo-row"><span class="bo-label">Total Logged</span><span class="bo-val" id="total-logged" style="color:var(--text)">$0</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="total-bar" style="width:0%"></div></div>
+    <div class="progress-pct" id="total-pct">0% of budget logged</div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px">
+    <div class="section-lbl">✈️ Flights (Fixed)</div>
+    <div class="fl-row"><span class="fl-route">DFW → BKK</span><span style="color:var(--text-dim);font-size:11px">May 30</span><span class="fl-cost">$942</span></div>
+    <div class="fl-row"><span class="fl-route">DMK → CNX</span><span style="color:var(--text-dim);font-size:11px">Jun 5</span><span class="fl-cost">$51</span></div>
+    <div class="fl-row"><span class="fl-route">CNX → HAN</span><span style="color:var(--text-dim);font-size:11px">Jun 8</span><span class="fl-cost">$225</span></div>
+    <div class="fl-row"><span class="fl-route">HAN → HKT</span><span style="color:var(--text-dim);font-size:11px">Jun 15</span><span class="fl-cost">~$130</span></div>
+    <div class="fl-row"><span class="fl-route">HKT → DPS</span><span style="color:var(--text-dim);font-size:11px">Jun 20</span><span class="fl-cost">~$105</span></div>
+    <div class="fl-row"><span class="fl-route">DPS → DFW</span><span style="color:var(--text-dim);font-size:11px">Jun 25</span><span class="fl-cost">$1,285</span></div>
+    <div style="border-top:1px solid var(--border);margin-top:6px;padding-top:10px;display:flex;justify-content:space-between"><span style="font-size:12px;color:var(--text-dim)">Flight total pp</span><span style="font-family:'DM Mono',monospace;font-size:14px;color:var(--gold)">$2,738</span></div>
+  </div>
+
+  <div id="stop-budgets"></div>
+
+  <div class="card">
+    <div class="section-lbl">🎒 Pre-Trip</div>
+    <div class="fl-row"><span style="color:var(--text-dim)">SafetyWing insurance (26 nights)</span><span class="fl-cost">$104</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">Hepatitis A vaccine</span><span class="fl-cost">~$75</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">Typhoid vaccine</span><span class="fl-cost">~$70</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">Malaria prescription</span><span class="fl-cost">~$25</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">Dry bag + gear</span><span class="fl-cost">$45</span></div>
+    <div class="fl-row"><span style="color:var(--text-dim)">DFW parking (26 days)</span><span class="fl-cost">$65</span></div>
+    <div style="border-top:1px solid var(--border);margin-top:6px;padding-top:10px;display:flex;justify-content:space-between"><span style="font-size:12px;color:var(--text-dim)">Pre-trip total pp</span><span style="font-family:'DM Mono',monospace;font-size:14px;color:var(--gold)">$271</span></div>
+  </div>
+
+  <div style="text-align:center;margin:16px 0 8px">
+    <button class="reset-btn" onclick="resetBudget()">Reset all logged amounts</button>
+  </div>
+</main>
+
+<script src="data.js"></script>
+<script>
+let budget = load('at25_budget', {});
+
+function getActual(id) {
+  if (!budget[id]) return 0;
+  return Object.values(budget[id]).reduce((s,v) => s + (parseFloat(v) || 0), 0);
+}
+
+function renderStops() {
+  document.getElementById('stop-budgets').innerHTML = BUDGET_STOPS.map(stop => {
+    const actual = getActual(stop.id);
+    const pct = Math.min((actual / stop.planned) * 100, 100);
+    return `
+      <div class="stop-budget" id="sb-${stop.id}">
+        <div class="sb-header" onclick="toggleSB('${stop.id}')">
+          <div>
+            <div class="sb-name">${stop.flag} ${stop.name}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px">Planned <span style="font-family:'DM Mono',monospace;color:var(--text-dim)">$${stop.planned}</span></div>
+          </div>
+          <div style="display:flex;align-items:center">
+            <div class="sb-actual" id="sba-${stop.id}">$${actual.toFixed(0)} <span style="color:var(--text-muted);font-size:10px">logged</span></div>
+            <svg class="sb-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="sb-body">
+          <div class="progress-bar"><div class="progress-fill" id="sbbar-${stop.id}" style="width:${pct}%;background:${stop.color}"></div></div>
+          <div style="font-size:11px;color:var(--text-dim);text-align:right;margin-bottom:10px" id="sbpct-${stop.id}">${pct.toFixed(0)}% of $${stop.planned} planned</div>
+          ${stop.cats.map(cat => {
+            const val = budget[stop.id]?.[cat.key] ?? '';
+            return `<div class="cat-row">
+              <span class="cat-lbl"><span>${cat.e}</span> ${cat.label}</span>
+              <div class="cat-right">
+                <span class="cat-planned">$${cat.p}</span>
+                <input class="cat-input" type="number" placeholder="actual" value="${val}"
+                  oninput="updateBudget('${stop.id}','${cat.key}',this.value)">
+              </div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+  }).join('');
+  updateTotals();
+}
+
+function toggleSB(id) { document.getElementById('sb-'+id).classList.toggle('open'); }
+
+function updateBudget(stopId, catKey, val) {
+  if (!budget[stopId]) budget[stopId] = {};
+  budget[stopId][catKey] = val === '' ? null : (parseFloat(val) || 0);
+  save('at25_budget', budget);
+  const stop = BUDGET_STOPS.find(s => s.id === stopId);
+  if (stop) {
+    const actual = getActual(stopId);
+    const pct = Math.min((actual / stop.planned) * 100, 100);
+    document.getElementById('sba-'+stopId).innerHTML = `$${actual.toFixed(0)} <span style="color:var(--text-muted);font-size:10px">logged</span>`;
+    document.getElementById('sbbar-'+stopId).style.width = pct + '%';
+    document.getElementById('sbpct-'+stopId).textContent = pct.toFixed(0) + '% of $' + stop.planned + ' planned';
+  }
+  updateTotals();
+}
+
+function updateTotals() {
+  const total = BUDGET_STOPS.reduce((s, st) => s + getActual(st.id), 0);
+  const pct = Math.min((total / 6007) * 100, 100);
+  document.getElementById('total-logged').textContent = '$' + total.toFixed(0);
+  document.getElementById('total-bar').style.width = pct + '%';
+  document.getElementById('total-pct').textContent = pct.toFixed(1) + '% of $6,007 budget logged';
+}
+
+function resetBudget() {
+  if (!confirm('Reset all logged amounts?')) return;
+  budget = {}; save('at25_budget', budget); renderStops();
+}
+
+renderStops();
+</script>
+</body>
+</html>
